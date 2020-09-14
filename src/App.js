@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+import s from './App.module.scss';
+import Container from './components/Container/Container'
+import SearchPanel from './components/SearchPanel/SearchPanel';
+import CharacterList from './components/CharacterList/CharacterList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const url = 'https://pokeapi.co/api/v2/pokemon?limit=30'
+
+const App = () => {
+    const [characters, setCharacter] = useState([]);
+
+    const getAllCharacters = async () => {
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+            const characters = data.results;
+            setCharacter(characters)
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
+
+    useEffect(() => {
+        getAllCharacters()
+    }, [])
+    return (
+      <Container>
+          <SearchPanel/>
+          <CharacterList characters={characters}/>
+      </Container>
+    );
 }
 
 export default App;

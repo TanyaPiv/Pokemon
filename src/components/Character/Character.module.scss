@@ -1,0 +1,14 @@
+
+.card {
+    flex: 0 1 25%;
+    padding: 8px;
+    position: relative;
+
+    img {
+        object-fit: cover;
+        object-position: center;
+        max-width: 200px;
+        min-height: 200px;
+        width: 100%;
+    }
+}
