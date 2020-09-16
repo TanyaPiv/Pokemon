@@ -1,8 +1,14 @@
 
 .card {
-    flex: 0 1 25%;
-    padding: 8px;
+    padding: 10px;
     position: relative;
+    cursor: pointer;
+
+    &:hover {
+        p {
+            opacity: 1;
+        }
+    }
 
     img {
         object-fit: cover;
@@ -11,4 +17,9 @@
         min-height: 200px;
         width: 100%;
     }
+}
+
+.Link {
+    text-decoration: none;
+    color: black;
 }

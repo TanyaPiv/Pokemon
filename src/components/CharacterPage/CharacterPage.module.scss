@@ -1,0 +1,50 @@
+.container {
+    max-width: 1150px;
+    width: 100%;
+    padding: 20px 15px;
+    margin: 0 auto;
+}
+
+.image {
+    img {
+        object-fit: cover;
+        object-position: center;
+        max-width: 200px;
+        min-height: 200px;
+        width: 100%;
+    }
+}
+
+
+.row {
+    display: flex;
+    align-items: center;
+}
+.name {
+    font-size: 20px;
+    display: flex;
+    text-transform: capitalize;
+    align-items: center;
+}
+
+.type {
+    display: flex;
+    text-align: center;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+
+}
+
+p{
+    font-size: 25px;
+    display: block;
+}
