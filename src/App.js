@@ -5,6 +5,7 @@ import SearchPanel from './components/SearchPanel/SearchPanel';
 import CharacterList from './components/CharacterList/CharacterList';
 import { Switch, Route } from 'react-router-dom';
 import CharacterPage from './components/CharacterPage/CharacterPage';
+import AbilityPage from './components/AbilityPage/AbilityPage';
 
 const url = 'https://pokeapi.co/api/v2/pokemon?limit=30'
 
@@ -33,10 +34,8 @@ const App = () => {
 
     return (
         <Switch>
-            <Route
-                path='/character/:id'
-                component={CharacterPage} />
-
+            <Route path='/ability/:id' component={AbilityPage} />
+            <Route path='/character/:id' component={CharacterPage} />
             <Route render={() => (
                 <>
                     <Container>

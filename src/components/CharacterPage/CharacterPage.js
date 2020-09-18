@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import s from './CharacterPage.module.scss';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 
 
 const CharacterPage = () => {
     const [info, setInfo] = useState({})
+    const history = useHistory();
     // state
     const params = useParams();
     const { id } = params
@@ -26,6 +27,7 @@ const CharacterPage = () => {
 
     return (
         <div className={s.container}>
+            <p className={s.button} onClick={() => history.goBack()}>Назад</p>
             <div className={s.image}>
                 <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt="" />
             </div>
@@ -69,13 +71,15 @@ const CharacterPage = () => {
                 </div>
                 {
                     info.abilities?.map((el) => {
+                        const arr = el.ability.url.split('/')
+                        const abilityId = arr[arr.length - 2]
                         return (
-                            <Link to={`/abilities/${id}`} key={el.ability.name}> {el.ability.url} </Link>
+                            <Link to={`/ability/${abilityId}`} key={el.ability.name}> {el.ability.name} </Link>
                         )
                     })
                 }
             </div>
-        </div>
+        </div >
     )
 }
 
